@@ -1,1 +1,573 @@
+---
+- summary: |
+    Успешная регистрация пользователя
+  requirement: |
+    no data
+  prerequisites:
+    no data
+  test-data: |
+    Данные незарегистрированного пользователя
+  steps:
+    - Ввести Nickname
+    - Ввести Email 
+    - Ввести Password
+    - Ввести Password Confirmation
+    - Нажать кнопку Submit
+  expected-result: |
+    Пользователь успешно зарегистрирован
 
+- summary: |
+    Проверка регистрации пользователя с ником менее 3 символов
+  requirement: |
+    Имя пользователя должно содержать от 3 до 16 символов
+  prerequisites:
+    no data
+  test-data: |
+    Nickname = qq, остальные данные незарегистрированного пользователя
+  steps:
+    - Ввести Nickname
+    - Ввести Email 
+    - Ввести Password
+    - Ввести Confirmation Password
+    - Нажать кнопку Submit
+  expected-result: |
+    Пользователь не зарегистрирован, отображается ошибка
+
+- summary: |
+    Проверка регистрации пользователя с ником более 16 символов
+  requirement: |
+    Имя пользователя должно содержать от 3 до 16 символов
+  prerequisites:
+    no data
+  test-data: |
+    Nickname = QwertyQwertyQwerty, остальные данные незарегистрированного пользователя
+  steps:
+    - Ввести Nickname
+    - Ввести Email 
+    - Ввести Password
+    - Ввести Confirmation Password
+    - Нажать кнопку Submit
+  expected-result: |
+    Пользователь не зарегистрирован, отображается ошибка
+
+- summary: |
+    Проверка регистрации пользователя с паролем менее 6 символов
+  requirement: |
+    Пароль должен содержать от 6 до 16 символов
+  prerequisites:
+    no data
+  test-data: |
+    Password = qwe!2, остальные данные незарегистрированного пользователя
+  steps:
+    - Ввести Nickname
+    - Ввести Email 
+    - Ввести Password
+    - Ввести Confirmation Password
+    - Нажать кнопку Submit
+  expected-result: |
+    Пользователь не зарегистрирован, отображается ошибка
+
+- summary: |
+    Проверка регистрации пользователя с паролем более 16 символов
+  requirement: |
+    Пароль должен содержать от 6 до 16 символов
+  prerequisites:
+    no data
+  test-data: |
+    Password = qwe!2qwe!2qwe!2qwe!2, остальные данные незарегистрированного пользователя
+  steps:
+    - Ввести Nickname
+    - Ввести Email 
+    - Ввести Password
+    - Ввести Confirmation Password
+    - Нажать кнопку Submit
+  expected-result: |
+    Пользователь не зарегистрирован, отображается ошибка
+
+- summary: |
+    Проверка совпадения данных пароля в полях Password и Password Confirmation
+  requirement: |
+    Подтверждение пароля должно совпадать с паролем 
+  prerequisites:
+    no data
+  test-data: |
+    Password = qwe!2qwe!2
+    Confirmation Password = qwe!2qwe12
+    Остальные данные незарегистрированного пользователя
+  steps:
+    - Ввести Nickname
+    - Ввести Email 
+    - Ввести Password
+    - Ввести Confirmation Password
+    - Нажать кнопку Submit
+  expected-result: |
+    Пользователь не зарегистрирован, отображается ошибка
+
+- summary: |
+    Успешная авторизация пользователя
+  requirement: |
+    no data
+  prerequisites:
+    no data
+  test-data: |
+    Данные зарегистрированного пользователя
+  steps:
+    - Ввести Email
+    - Ввести Password
+    - Нажать на кнопку Submit
+  expected-result: |
+    Пользователь успешно авторизован, открывается главная страница сайта
+
+- summary: |
+    Проверка выхода авторизованного пользователя
+  requirement: |
+    no data
+  prerequisites:
+    Пользователь авторизован на сайте
+  test-data: |
+    no data
+  steps:
+    - Нажать на пользователя в шапке страницы
+    - Нажать Sign Out в выпадающем меню
+  expected-result: |
+    Пользователь успешно вышел
+
+- summary: |
+    Проверка авторизации через GitHub
+  requirement: |
+    no data
+  prerequisites:
+    Произведен вход в аккаунт на сайте GitHub
+  test-data: |
+    no data
+  steps:
+    - Нажать кнопку Sign in with Github
+  expected-result: |
+     Пользователь успешно авторизован через GitHub, открывается главная страница сайта
+
+- summary: |
+    Проверка авторизации через Discord
+  requirement: |
+    no data
+  prerequisites:
+    Произведен вход в аккаунт на сайте Discord
+  test-data: |
+    no data
+  steps:
+    - Нажать кнопку Sign in with Discord
+  expected-result: |
+     Пользователь успешно авторизован через Discord, открывается главная страница сайта
+
+- summary: |
+    Проверка авторизации незарегистрированного пользователя
+  requirement: |
+    no data
+  prerequisites:
+    no data
+  test-data: |
+    Email = dfgdfg@fg.fg
+    Пароль = dfgdfg
+  steps:
+    - Ввести Email
+    - Ввести Password
+    - Нажать на кнопку Submit
+  expected-result: |
+    Пользователь не авторизован, отображается ошибка
+
+- summary: |
+    Проверка восстановления пароля при нажатии на Forgot your password?
+  requirement: |
+    no data
+  prerequisites:
+    no data
+  test-data: |
+    Почта зарегистрированного пользователя
+  steps:
+    - Ввести Email
+    - Открыть почту
+    - Перейти по ссылке в письме
+    - Ввести новый пароль
+    - Авторизоваться с новым паролем
+  expected-result: |
+    Авторизация осуществляется с новым паролем
+
+- summary: |
+    Проверка сортировки лидеров за неделю
+  requirement: |
+    На главной странице отображается Leaderboard за неделю, за месяц, за весь период с лимитом до 7 строк с пользователями 
+  prerequisites:
+    no data
+  test-data: |
+    no data
+  steps:
+    - Открыть главную страницу
+  expected-result: |
+    Отображаются лидеры за неделю в порядке убывания
+
+- summary: |
+    Проверка сортировки лидеров за месяц
+  requirement: |
+    На главной странице отображается Leaderboard за неделю, за месяц, за весь период с лимитом до 7 строк с пользователями 
+  prerequisites:
+    no data
+  test-data: |
+    no data
+  steps:
+    - Открыть главную страницу
+    - Нажать на MONTH в Leaderboard
+  expected-result: |
+    Отображаются лидеры за месяц в порядке убывания
+
+- summary: |
+    Проверка сортировки лидеров за весь период
+  requirement: |
+    На главной странице отображается Leaderboard за неделю, за месяц, за весь период с лимитом до 7 строк с пользователями 
+  prerequisites:
+    no data
+  test-data: |
+    no data
+  steps:
+    - Открыть главную страницу
+    - Нажать на ALL в Leaderboard
+  expected-result: |
+    Отображаются лидеры за весь период в порядке убывания
+
+- summary: |
+    Проверка отправки сообщения в чат General главной страницы
+  requirement: |
+    Внизу главной страницы отображается окно чата. Справа в окне отображаются онлайн пользователи и их количество. Есть возможность отправить личное сообщение или написать в группу.
+  prerequisites:
+    no data
+  test-data: |
+    no data
+  steps:
+    - Ввести сообщение
+    - Нажать Send
+  expected-result: |
+    Сообщение успешно отправлено, отображается в чате
+
+- summary: |
+    Проверка отправки личного сообщения в чат с главной страницы
+  requirement: |
+    no data
+  prerequisites:
+    no data
+  test-data: |
+    no data
+  steps:
+    - Нажать на иконку сообщения
+    - Выбрать онлайн пользователя
+    - Ввести сообщение
+    - Нажать на Send
+  expected-result: |
+    Личное сообщение отправлено и отображается в чате
+    
+- summary: |
+    Проверка создания игры with a bot
+  requirement: |
+    no data
+  prerequisites:
+    no data
+  test-data: |
+    no data
+  steps:
+    - Нажать на кнопку CREATE A GAME
+    - Выбрать Level, например, easy
+    - Выбрать тип игры With a bot
+    - Выбрать Time control, например, 8 minutes
+    - Выбрать название игры, например, random task
+    - Нажать на кнопку Create battle
+  expected-result: |
+    Игра с ботом успешно создана, открылась страница игры
+
+- summary: |
+    Проверка создания игры с уровнем сложности medium
+  requirement: |
+    no data
+  prerequisites:
+    no data
+  test-data: |
+    no data
+  steps:
+    - Нажать на кнопку CREATE A GAME
+    - Выбрать уровень medium
+    - Выбрать Game Type, например, With a bot
+    - Выбрать Time control, например, 8 minutes
+    - Выбрать название игры, например, random task
+    - Нажать на кнопку Create battle
+  expected-result: |
+    Игра с выбранным уровнем сложности успешно создана, открылась страница игры
+
+- summary: |
+    Проверка отправки приглашения выбранному оппоненту
+  requirement: |
+    no data
+  prerequisites:
+    no data
+  test-data: |
+    no data
+  steps:
+    - Нажать на кнопку CREATE A GAME
+    - Выбрать Level, например, easy
+    - Выбрать тип игры With a friend
+    - Выбрать Time control, например, 8 minutes
+    - Выбрать оппонента Choose opponent
+    - Выбрать название игры, например, boom
+    - Нажать на кнопку Create invite
+  expected-result: |
+    Приглашение на игру успешно отправлено
+
+- summary: |
+    Проверка создания игры с использованием тега
+  requirement: |
+    no data
+  prerequisites:
+    no data
+  test-data: |
+    no data
+  steps:
+    - Нажать на кнопку CREATE A GAME
+    - Выбрать Level, например, easy
+    - Выбрать Game Type, например, With a bot
+    - Выбрать Time control, например, 8 minutes
+    - Выбрать тег, например, collections
+    - Выбрать игру, например, boom
+    - Нажать Create battle
+  expected-result: |
+    Игра успешно создана, открылась страница игры
+
+- summary: |
+    Проверка отображения Task в созданной игре
+  requirement: |
+    no data
+  prerequisites:
+    Создана игра, например, boom
+  test-data: |
+    no data
+  steps:
+    - Нажать на Task
+  expected-result: |
+    Отображается описание игры
+
+- summary: |
+    Проверки кода во вкладке OUTPUT выбранной игры
+  requirement: |
+    no data
+  prerequisites:
+    Создана игра, например, rect_area и написан код в редакторе кода
+  test-data: |
+    Код = "const _ = require("lodash"); const R = require("rambda"); const solution = (width, length) => {return 0;}; module.exports = solution;"
+  steps:
+    - Нажать Run
+  expected-result: |
+    Отображается проверка кода во вкладке OUTPUT
+
+- summary: |
+    Проверка смены языка програмирования пользователем в игре
+  requirement: |
+    no data
+  prerequisites:
+    Создана игра, например, rect_area. По умолчанию выбран Node.js
+  test-data: |
+    no data
+  steps:
+    - Выбрать язык программирования, например, Python
+  expected-result: |
+    Язык программирования сменился
+
+- summary: |
+    Переход на главную страницу при нажатии кнопки Codebattle в шапке страницы
+  requirement: |
+    При нажатии в шапке на Codebattle происходит переход на главную страницу
+  prerequisites:
+    Создана игра, например, rect_area
+  test-data: |
+    no data
+  steps:
+    - Нажать на кнопку Codebattle в шапке страницы
+  expected-result: |
+    Открывается главная страница
+
+- summary: |
+    Проверка отображаения завершенных игр во вкладке COMPLETED GAMES
+  requirement: |
+    no data
+  prerequisites:
+    Авторизоваться под зарегистрированным пользователем и сыграть несколько игр
+  test-data: |
+    no data
+  steps:
+    - Нажать на пользователя в шапке страницы
+    - Нажать My Profile в выпадающем меню
+    - Нажать COMPLETED GAMES
+  expected-result: |
+    Отображается список игр, которые завершил пользователь
+
+- summary: |
+    Проверка изменения имени пользователя в настройках пользователя
+  requirement: |
+    no data
+  prerequisites:
+    no data
+  test-data: |
+    no data
+  steps:
+    - Нажать на пользователя в шапке страницы
+    - Нажать Settings в выпадающем меню
+    - Изменить значение в поле Your name
+    - Нажать Save
+  expected-result: |
+    Имя пользователя успешно изменено
+
+- summary: |
+    Проверка изменения языка программирования пользователя в настройках
+  requirement: |
+    no data
+  prerequisites:
+    no data
+  test-data: |
+    no data
+  steps:
+    - Нажать на пользователя в шапке страницы
+    - Нажать на Settings в выпадающем меню
+    - Изменить значение в поле Your weapon
+    - Нажать Save
+  expected-result: |
+    Язык программирования пользователя успешно изменен
+
+- summary: |
+    Проверка изменения клана пользователя в настройках
+  requirement: |
+    no data
+  prerequisites:
+    no data
+  test-data: |
+    no data
+  steps:
+    - Нажать на пользователя в шапке страницы
+    - Нажать на Settings в выпадающем меню
+    - Изменить значение в поле Your clan
+    - Нажать Save
+  expected-result: |
+    Клан пользователя успешно изменен
+
+- summary: |
+    Проверка изменения звука в настройках
+  requirement: |
+    no data
+  prerequisites:
+    no data
+  test-data: |
+    no data
+  steps:
+    - Нажать на пользователя в шапке страницы
+    - Нажать на Settings в выпадающем меню
+    - Выбрать звук, например, CS
+    - Нажать Save
+  expected-result: |
+    Звук пользователя успешно изменен
+
+- summary: |
+    Проверка изменения уровня громкости звука в настройках
+  requirement: |
+    no data
+  prerequisites:
+    no data
+  test-data: |
+    no data
+  steps:
+    - Нажать на пользователя в шапке страницы
+    - Нажать на Settings в выпадающем меню
+    - Изменить уровень громкости
+    - Нажать Save
+  expected-result: |
+    Уровень громкости успешно изменен
+
+- summary: |
+    Проверка Unlink Github
+  requirement: |
+    no data
+  prerequisites:
+    Зарегистрироваться с помощью аккаунта Github
+  test-data: |
+    no data
+  steps:
+    - Нажать на пользователя в шапке страницы
+    - Нажать на Settings в выпадающем меню
+    - Нажать на Unlink Github
+  expected-result: |
+    Осуществляется выход авторизованного пользователя с сайта
+
+- summary: |
+    Проверка поиска бота в Users rating
+  requirement: |
+    no data
+  prerequisites:
+    no data
+  test-data: |
+    no data
+  steps:
+    - Нажать на пользователя в шапке страницы
+    - Нажать на User rating в выпадающем меню
+    - Включить Чек-бокс With bots
+    - Ввести имя бота, например, ZhenyaGazprom в поле поиска
+  expected-result: |
+    Отобразился искомый бот
+
+- summary: |
+    Проверка Create new task в Tasks
+  requirement: |
+    no data
+  prerequisites:
+    no data
+  test-data: |
+    no data
+  steps:
+    - Нажать на пользователя в шапке страницы
+    - Нажать Tasks в выпадающем меню
+    - Нажать Create new task
+    - Ввести название задачи
+    - Ввести описание задачи
+    - Создать Input Parameters type
+    - Создать Output Parameter type
+    - Нажать на Save
+  expected-result: |
+    Создана новая задача/игра
+
+- summary: |
+    Проверка Create new task pack в Tasks
+  requirement: |
+    no data
+  prerequisites:
+    no data
+  test-data: |
+    no data
+  steps:
+    - Нажать на пользователя в шапке страницы
+    - Нажать на Tasks в выпадающем меню
+    - Нажать на Task packs
+    - Нажать на Create new task pack
+    - Ввести Name
+    - Выбрать Visibility
+    - Ввести Task_ids
+    - Нажать на Save
+  expected-result: |
+    Создан новый пакет задач
+
+- summary: |
+    Проверка Create a new tournament в Tournaments
+  requirement: |
+    no data
+  prerequisites:
+    no data
+  test-data: |
+    Name = "qwertyuio"
+    Type = "individual"
+  steps:
+    - Нажать на пользователя в шапке страницы
+    - Нажать на Tournaments в выпадающем меню
+    - Ввести Name
+    - Ввыбрать Type
+    - Нажать Create
+  expected-result: |
+    Успешно создан новый турнир
