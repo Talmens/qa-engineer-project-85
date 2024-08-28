@@ -1,1 +1,95 @@
+- summary: |
+    Проверка сортировки лидеров за неделю
+  status: pass
 
+- summary: |
+    Проверка сортировки лидеров за месяц
+  status: pass
+
+- summary: |
+    Проверка сортировки лидеров за весь период
+  status: pass
+
+- summary: |
+    Проверка отправки сообщения в чат General главной страницы
+  status: pass
+
+- summary: |
+    Проверка отправки личного сообщения в чат с главной страницы
+  status: pass
+  
+- summary: |
+     Проверка создания игры with a bot
+  status: pass
+
+- summary: |
+    Проверка создания игры с уровнем сложности medium
+  status: pass
+
+- summary: |
+    Проверка отправки приглашения выбранному оппоненту
+  status: pass
+
+- summary: |
+    Проверка создания игры с использованием тега
+  status: pass
+  
+- summary: |
+    Проверка отображения Task в созданной игре
+  status: pass
+    
+- summary: |
+    Проверки кода во вкладке OUTPUT выбранной игры
+  status: pass
+    
+- summary: |
+    Проверка смены языка програмирования пользователем в игре
+  status: pass
+    
+- summary: |
+    Переход на главную страницу при нажатии кнопки Codebattle в шапке страницы
+  status: pass
+    
+- summary: |
+    Проверка отображаения завершенных игр во вкладке COMPLETED GAMES
+  status: pass
+    
+- summary: |
+    Проверка изменения имени пользователя в настройках пользователя
+  status: pass
+    
+- summary: |
+    Проверка изменения языка программирования пользователя в настройках
+  status: pass
+
+- summary: |
+     Проверка изменения клана пользователя в настройках
+  status: pass
+
+- summary: |
+     Проверка изменения звука в настройках
+  status: fail
+
+- summary: |
+     Проверка изменения уровня громкости звука в настройках
+  status: pass
+    
+- summary: |
+     Проверка Unlink Github
+  status: fail
+
+- summary: |
+    Проверка поиска бота в Users rating
+  status: pass
+      
+- summary: |
+    Проверка Create new task в Tasks
+  status: fail
+
+- summary: |
+    Проверка Create new task pack в Tasks
+  status: pass
+
+- summary: |
+    Проверка Create a new tournament в Tournaments
+  status: pass 
