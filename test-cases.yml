@@ -6,7 +6,7 @@
   prerequisites:
     no data
   test-data: |
-    Данные незарегистрированного пользователя
+    no data
   steps:
     - Ввести Nickname
     - Ввести Email 
@@ -23,7 +23,7 @@
   prerequisites:
     no data
   test-data: |
-    Nickname = qq, остальные данные незарегистрированного пользователя
+    Nickname = qq
   steps:
     - Ввести Nickname
     - Ввести Email 
@@ -40,7 +40,7 @@
   prerequisites:
     no data
   test-data: |
-    Nickname = QwertyQwertyQwerty, остальные данные незарегистрированного пользователя
+    Nickname = QwertyQwertyQwerty
   steps:
     - Ввести Nickname
     - Ввести Email 
@@ -57,7 +57,7 @@
   prerequisites:
     no data
   test-data: |
-    Password = qwe!2, остальные данные незарегистрированного пользователя
+    Password = qwe!2
   steps:
     - Ввести Nickname
     - Ввести Email 
@@ -74,7 +74,7 @@
   prerequisites:
     no data
   test-data: |
-    Password = qwe!2qwe!2qwe!2qwe!2, остальные данные незарегистрированного пользователя
+    Password = qwe!2qwe!2qwe!2qwe!2
   steps:
     - Ввести Nickname
     - Ввести Email 
@@ -110,7 +110,8 @@
   prerequisites:
     no data
   test-data: |
-    Данные зарегистрированного пользователя
+    Email: ivanov@gmail.com
+    Password: qwerty
   steps:
     - Ввести Email
     - Ввести Password
@@ -119,7 +120,7 @@
     Пользователь успешно авторизован, открывается главная страница сайта
 
 - summary: |
-    Проверка выхода авторизованного пользователя
+    Проверка логаута пользователя
   requirement: |
     no data
   prerequisites:
@@ -247,7 +248,7 @@
     Сообщение успешно отправлено, отображается в чате
 
 - summary: |
-    Проверка отправки личного сообщения в чат с главной страницы
+    Проверка отправки личного сообщения из лобби
   requirement: |
     no data
   prerequisites:
@@ -263,7 +264,7 @@
     Личное сообщение отправлено и отображается в чате
     
 - summary: |
-    Проверка создания игры with a bot
+    Проверка создания игры с ботом
   requirement: |
     no data
   prerequisites:
@@ -272,16 +273,14 @@
     no data
   steps:
     - Нажать на кнопку CREATE A GAME
-    - Выбрать Level, например, easy
     - Выбрать тип игры With a bot
-    - Выбрать Time control, например, 8 minutes
-    - Выбрать название игры, например, random task
+    - Остальные параметры Level, Time control, Name, Tags оставить по умолчанию
     - Нажать на кнопку Create battle
   expected-result: |
     Игра с ботом успешно создана, открылась страница игры
 
 - summary: |
-    Проверка создания игры с уровнем сложности medium
+    Проверка создания игры с ботом и уровнем сложности medium
   requirement: |
     no data
   prerequisites:
