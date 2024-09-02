@@ -85,7 +85,7 @@
     Пользователь не зарегистрирован, отображается ошибка
 
 - summary: |
-    Проверка совпадения данных пароля в полях Password и Password Confirmation
+    Проверка регистрации если введенные пароли не совпадают
   requirement: |
     Подтверждение пароля должно совпадать с паролем 
   prerequisites:
@@ -93,7 +93,6 @@
   test-data: |
     Password = qwe!2qwe!2
     Confirmation Password = qwe!2qwe12
-    Остальные данные незарегистрированного пользователя
   steps:
     - Ввести Nickname
     - Ввести Email 
